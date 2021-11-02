@@ -1,0 +1,30 @@
+{
+  "name": "LionDev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Summarine1/ExamenLionDev.git"
+  },
+  "keywords": [],
+  "author": "César Armando Rodríguez Ortega",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Summarine1/ExamenLionDev/issues"
+  },
+  "homepage": "https://github.com/Summarine1/ExamenLionDev#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-myconnection": "^1.0.4",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
+  }
+}
