@@ -6,32 +6,32 @@
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
-                        <th>ID Reservacion</th>
-                        <th>ID Sala</th>
-                        <th>Hora de inicio</th>
-                        <th>Hora de finalización</th>
+                        <th>ID </th>
+                        <th>articulo</th>
+                        <th>tipo</th>
+                        <th>cantidad</th>
                         <th>
                             
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% if (dataReser){ %>
-                        <% for (var i=0;i < dataReser.length;i++){ %>
+                    <% if (dataPape){ %>
+                        <% for (var i=0;i < dataPape.length;i++){ %>
                             <tr>
                                 <td>
-                                    <%= dataReser[i].ID %>
+                                    <%= dataPape[i].ID %>
                                 </td>
                                 <td>
-                                    <%= dataReser[i].ID_sala %>
+                                    <%= dataPape[i].articulo %>
                                 </td>
                                 <td>
-                                    <%= dataReser[i].hora_inicial %>
+                                    <%= dataPape[i].tipo %>
                                 </td>
                                 <td>
-                                    <%= dataReser[i].hora_final %>
+                                    <%= dataPape[i].cantidad %>
                                 </td>
-                                <td><a href="/delete/<%= dataReser[i].ID%>" class="btn btn-danger" name="btn_borrar">Borrar</a></td>
+                                <td><a href="/delete/<%= dataPape[i].ID%>" class="btn btn-danger" name="btn_borrar">Borrar</a></td>
                             </tr>
                             <% } %>
                                 <% } %>
@@ -42,81 +42,17 @@
 
         </div>
 
-        <div class="col-md-3">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>   
-                        <th>ID</th>
-                        <th>Nombre de la sala</th>
-                        <th></th>
-                       
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <% if (dataSala){ %>
-                        <% for (var i=0;i < dataSala.length;i++){ %>
-                            <tr>
-                                <td>
-                                    <%= dataSala[i].ID %>
-                                </td>
-                                <td>
-                                    <%= dataSala[i].nombre_sala %>
-                                </td>
-                               
-                            </tr>
-                            <% } %>
-                                <% } %>
-
-                </tbody>
-            </table>
-        </div>
-        <div class="col-md-3">
-            <form action="/addReser" method="post">
-                <br>
-                <div class="mb-2">
-                    <div class="form-group">
-                        <label for="InputHoraInicio" class="form-label">Sala</label>
-                        
-                                <select name="IDSala">
-                                    <% if (dataSala){ %>
-                                        <% for (var i=0;i < dataSala.length;i++){ %>
-                                    <option value="<%= dataSala[i].ID %>">
-                                        <%= dataSala[i].nombre_sala %>
-                                    </option>
-                                    <% } %>
-                                </select>
-                               
-                                <% } %>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        
-                        <label for="InputHoraInicio" class="form-label">Hora de inicio</label>
-                        <input type="datetime-local" class="form-control" id="InputHoraInicio" name="hora_inicial">
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label for="InputHoraFinal" class="form-label">Hora de fin</label>
-                        <input type="datetime-local" class="form-control" id="InputHoraFinal" name="hora_final">
-                        <br>
-                        <button type="submit" class="btn btn-dark">Reservar</button>
-                    </div>
-                </div>
-
-              </form>  
-
-        </div>
+      
         <div class="col-md-2">
             <form action="/addSala" method="post">
                 <br>
                 <div class="mb-2">
                     <div class="form-group">
-                        <label for="InputNombreSala" class="form-label">Nombre de la sala</label>
-                        <input type="text" class="form-control" id="InputNombreSala" name="nombre_sala">
+                        <label for="Inputarticulo" class="form-label">articulo</label>
+                        <input type="text" class="form-control" id="Inputarticulo" name="articulo">
                     </div>
                     <br>
-                        <button type="submit" class="btn btn-dark">Crear sala</button>
+                        <button type="submit" class="btn btn-dark">Crear articulo</button>
                     </div>
                 </form>
                 </div>
