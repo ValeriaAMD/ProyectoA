@@ -9,4 +9,5 @@ router.get('/delete/:id', salaController.delete);
 router.get('/borrarAuto', salaController.autoBorrado);
 
 
+
 module.exports = router;

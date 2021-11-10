@@ -1,4 +1,4 @@
-//Proyecto creado por César Armando Rodríguez Ortega 
+
 //Para ejecutar con nodemon, el comando a ejecutar es "npm run dev"
 //Los modulos utilizados para ejecutar este proyecto son:
     //"ejs": "^3.1.6",

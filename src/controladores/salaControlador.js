@@ -1,37 +1,32 @@
 
 const controller = {};
 
-controller.listReser = (req, res) => {
+controller.listPape = (req, art) => {
     req.getConnection((err, conn) => {
-        conn.query('SELECT * FROM articulo', (err, rese) => {//Obtener los datos de la tabla reservacion
-            if (err) {
-                res.json(err);
-                return;
-            }
-            conn.query('SELECT * FROM papeleria', (err, salas) => {//Obtener los datos de la tabla sala
+            conn.query('SELECT * FROM papeleria', (err, papeleria) => {//Obtener los datos de la tabla papeleria
                 if (err) {
-                    res.json(err);
+                    art.json(err);
                     return;
                 }
-                res.render('salas', {
-                    dataSala: salas,
-                    dataReser: rese
+                res.render('articulos', {
+                    dataArticulo: articulo,
+                    
                 });
             });
 
         });
 
 
-    });
-};
+    };
 
 
-controller.saveSala = (req, res) => {//Controlador para dar de alta una sala
+
+controller.saveSala = (req, art) => {//Controlador para dar de alta una articulo
     req.getConnection((err, conn) => {
 
-        conn.query("INSERT INTO `sala` (`nombre_sala`) VALUES (?) ", [req.body.nombre_sala], (err, rows) => {//Insertamos la sala con el query
+        conn.query("INSERT INTO `papeleria` (`articulo`) VALUES (?) ", [req.body.articulo], (err, rows) => {//Insertamos el articulov con el query
             console.log(err);
-            res.redirect('/');
+            art.redirect('/');
         });
     })
 
@@ -40,11 +35,11 @@ controller.saveSala = (req, res) => {//Controlador para dar de alta una sala
 
 
 
-controller.delete = (req, res) => {//Controlador para borrar una reservacion
-    const { id } = req.params;//Obtenemos el id de salas.ejs
+controller.delete = (req, art) => {//Controlador para borrar una reservacion
+    const { id } = req.params;//Obtenemos el id de articulo.ejs
     req.getConnection((err, conn) => {
         //console.log()
-        conn.query("DELETE FROM reservacion WHERE ID =?", [id], (err, rows) => {//Ejecuta la query para borrar la sala
+        conn.query("DELETE FROM papeleria WHERE ID =?", [id], (err, rows) => {//Ejecuta la query para borrar articulo
             res.redirect('/');
 
         });
