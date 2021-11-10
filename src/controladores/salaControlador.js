@@ -8,8 +8,8 @@ controller.listPape = (req, art) => {
                     art.json(err);
                     return;
                 }
-                res.render('articulos', {
-                    dataArticulo: articulo,
+                art.render('salas', {
+                    dataPape: papeleria
                     
                 });
             });
@@ -24,7 +24,7 @@ controller.listPape = (req, art) => {
 controller.saveSala = (req, art) => {//Controlador para dar de alta una articulo
     req.getConnection((err, conn) => {
 
-        conn.query("INSERT INTO `papeleria` (`articulo`) VALUES (?) ", [req.body.articulo], (err, rows) => {//Insertamos el articulov con el query
+        conn.query("INSERT INTO `papeleria` (`articulo`,`tipo`,`cantidad`) VALUES (?,?,?) ", [req.body.articulo, req.body.tipo, req.body.cantidad], (err, rows) => {//Insertamos el articulov con el query
             console.log(err);
             art.redirect('/');
         });
@@ -36,10 +36,10 @@ controller.saveSala = (req, art) => {//Controlador para dar de alta una articulo
 
 
 controller.delete = (req, art) => {//Controlador para borrar una reservacion
-    const { id } = req.params;//Obtenemos el id de articulo.ejs
+    const { ID } = req.params;//Obtenemos el id de articulo.ejs
     req.getConnection((err, conn) => {
         //console.log()
-        conn.query("DELETE FROM papeleria WHERE ID =?", [id], (err, rows) => {//Ejecuta la query para borrar articulo
+        conn.query("DELETE FROM papeleria WHERE ID =?", [ID], (err, rows) => {//Ejecuta la query para borrar articulo
             res.redirect('/');
 
         });

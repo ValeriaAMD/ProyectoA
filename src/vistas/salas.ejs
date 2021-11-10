@@ -20,7 +20,8 @@
                         <% for (var i=0;i < dataPape.length;i++){ %>
                             <tr>
                                 <td>
-                                    <%= dataPape[i].ID %>
+                                    <%= 
+                                    dataPape[i].ID %>
                                 </td>
                                 <td>
                                     <%= dataPape[i].articulo %>
@@ -43,13 +44,19 @@
         </div>
 
       
-        <div class="col-md-2">
+        <div class="col-md-4">
             <form action="/addSala" method="post">
                 <br>
                 <div class="mb-2">
                     <div class="form-group">
                         <label for="Inputarticulo" class="form-label">articulo</label>
                         <input type="text" class="form-control" id="Inputarticulo" name="articulo">
+                        
+                        <label for="Inputtipo" class="form-label">tipo</label>
+                        <input type="text" class="form-control" id="Input" name="tipo">
+                        <label for="Inputcantidad" class="form-label">cantidad</label>
+                        <input type="text" class="form-control" id="Inputcantidad" name="cantidad">
+
                     </div>
                     <br>
                         <button type="submit" class="btn btn-dark">Crear articulo</button>

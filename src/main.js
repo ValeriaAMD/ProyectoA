@@ -9,7 +9,7 @@
     //"nodemon": "^2.0.13"
     
 
-setInterval(borradoAutomatico,30000);  //La funcion borradoAutomatico() se ejecuta cada 30 segundos.
+
                                                                                                              
 
 const express = require('express');
@@ -49,6 +49,4 @@ main.listen(main.get('port'), () => {
     console.log("Server iniciado en puerto 3000");
 });
 
-function borradoAutomatico(){//Esta funcion ejecuta el controlador de borrado automatico la cual borra las sesion es caducadas
-    request('http://localhost:3000/borrarAuto');
-}
+
